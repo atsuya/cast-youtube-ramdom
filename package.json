@@ -1,0 +1,27 @@
+{
+  "name": "cast-youtube-ramdom",
+  "version": "0.1.0",
+  "description": "cast youtube videos in random from a specific youtube channel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atsuya/cast-youtube-ramdom.git"
+  },
+  "author": "Atsuya Takagi <atsuya.takagi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atsuya/cast-youtube-ramdom/issues"
+  },
+  "homepage": "https://github.com/atsuya/cast-youtube-ramdom#readme",
+  "dependencies": {
+    "commander": "4.0.0",
+    "googleapis": "44.0.0"
+  },
+  "devDependencies": {
+    "eslint": "6.6.0",
+    "eslint-config-google": "0.14.0"
+  }
+}
