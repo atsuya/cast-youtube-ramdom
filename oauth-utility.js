@@ -51,6 +51,7 @@ class OauthUtility {
     return new Promise((resolve, reject) => {
       const server = http.createServer(async (request, response) => {
         console.log(`received a request: ${request.url}`)
+        response.end('Great. Go back to the terminal to continue.')
 
         const urlToParse = `http://127.0.0.1:${this.port}${request.url}`
         const queryParameters = new url.URL(urlToParse).searchParams
@@ -68,16 +69,14 @@ class OauthUtility {
 
           console.log(tokens)
           console.log('oauth credentials set')
-
-          response.end()
-
           console.log('closing the server')
-          server.close(() => {
-            resolve(this.oauthClient)
-          })
+
+          server.close()
+          resolve(this.oauthClient)
         }
       })
       server.listen(this.port)
+      return
     })
   }
 }
