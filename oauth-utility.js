@@ -50,24 +50,24 @@ class OauthUtility {
   waitForCallback() {
     return new Promise((resolve, reject) => {
       const server = http.createServer(async (request, response) => {
-        console.log(`received a request: ${request.url}`)
+        //console.log(`received a request: ${request.url}`)
         response.end('Great. Go back to the terminal to continue.')
 
         const urlToParse = `http://127.0.0.1:${this.port}${request.url}`
         const queryParameters = new url.URL(urlToParse).searchParams
         const code = queryParameters.get('code')
 
-        console.log(`code: ${code}`)
+        //console.log(`code: ${code}`)
 
         // very bad hack. it should check for the actual callback path or state
         // to determine a valid callback.
         if (code) {
-          console.log('getting tokens...')
+          //console.log('getting tokens...')
 
           const { tokens } = await this.oauthClient.getToken(code)
           this.oauthClient.setCredentials(tokens)
 
-          console.log(tokens)
+          //console.log(tokens)
           console.log('oauth credentials set')
           console.log('closing the server')
 
